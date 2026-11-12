@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a receipt maker</title>
+  <!-- Google Fonts: Handwriting / Calligraphy & Typewriter -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Special+Elite&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-wrapper">
+    <aside class="control-panel no-print">
+      <header class="panel-header">
+        <h1>✯ Receipt Studio</h1>
+        <p>give us your receipt and credit card details mwehehehehehe</p>
+      </header>
+
+      <section class="form-section">
+        <h2>Receipt Details</h2>
+        <div class="input-group">
+          <label for="customer-name">Store / Client Name</label>
+          <input type="text" id="customer-name" placeholder="e.g. Jason Todd">
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="invoice-number">Receipt #</label>
+            <input type="text" id="invoice-number" value="RCPT-042">
+          </div>
+          <div class="input-group">
+            <label for="invoice-date">Date</label>
+            <input type="date" id="invoice-date">
+          </div>
+        </div>
+      </section>
+
+      <form id="item-form" class="form-section">
+        <h2>Add Item</h2>
+        <div class="input-group">
+          <label for="item-name">Item Description</label>
+          <input type="text" id="item-name" placeholder="e.g. 51-in-1 Shampoo and Body Wash" required>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="item-qty">Qty</label>
+            <input type="number" id="item-qty" min="1" step="1" value="1" required>
+          </div>
+          <div class="input-group">
+            <label for="item-price">Price ($)</label>
+            <input type="number" id="item-price" min="0.01" step="0.01" placeholder="0.00" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary full-width">+ Add to Receipt</button>
+      </form>
+
+      <div class="action-btns">
+        <button type="button" id="print-btn" class="btn-secondary full-width">Print / Save as PDF</button>
+      </div>
+    </aside>
+
+    <main class="preview-area">
+      <div class="receipt-container">
+        <!-- Decorative Star Sticker Elements -->
+        <div class="sticker star-top">✯</div>
+        <div class="sticker star-bottom">✯</div>
+
+        <article class="invoice-card">
+          <header class="invoice-header">
+            <div class="store-brand">
+              <span class="welcome-tag">WELCOME TO</span>
+              <h2 id="preview-customer" class="store-title">Kiri's Mall</h2>
+            </div>
+            <div class="invoice-meta">
+              <p>RECEIPT</p>
+              <p><span id="preview-date">SUNDAY APRIL</span></p>
+              <p>NO. <span id="preview-inv-num">RCPT-042</span></p>
+            </div>
+          </header>
+
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>NO.</th>
+                <th>ITEM</th>
+                <th class="text-right">PRICE</th>
+                <th class="delete-col no-print">ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="invoice-tbody">
+              <tr class="empty-row">
+                <td colspan="4">Your receipt is empty. Add items using the control panel!</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <section class="totals-section">
+            <div class="totals-box">
+              <div class="total-row">
+                <span>ITEM COUNT:</span>
+                <span id="item-count-display">0</span>
+              </div>
+              <div class="total-row">
+                <span>SUBTOTAL:</span>
+                <span id="subtotal-display">$0.00</span>
+              </div>
+              <div class="total-row">
+                <span>TAX (18%):</span>
+                <span id="tax-display">$0.00</span>
+              </div>
+              <div class="total-row grand-total">
+                <span>TOTAL:</span>
+                <span id="grand-total">$0.00</span>
+              </div>
+            </div>
+          </section>
+
+          <footer class="receipt-footer">
+            <div class="barcode">✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮ ✮</div>
+            <p class="footer-note">★ THANK YOU FOR SHOPPING WITH US ★</p>
+          </footer>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
